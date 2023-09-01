@@ -1,0 +1,25 @@
+{
+    "name": "ExplorerFernbedienung",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "OLED12864_I2C": "github:callitgs3/oled12864_i2c#bffab279a7302996f6fdcb9b3e477101234c0603"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.0.35",
+        "targetId": "calliopemini"
+    },
+    "supportedTargets": [
+        "calliopemini"
+    ],
+    "preferredEditor": "blocksprj"
+}
