@@ -114,13 +114,13 @@ Radius = Strahl + 2
 ZeichneSonarRadius()
 basic.forever(function () {
     if (Fahren) {
-        NeigungX = input.rotation(Rotation.Roll)
-        NeigungY = input.rotation(Rotation.Pitch)
+        NeigungX = Math.map(pins.analogReadPin(AnalogPin.C16), 1, 1021, NeigungMax, NeigungMax * -1)
+        NeigungY = Math.map(pins.analogReadPin(AnalogPin.C17), 1, 1021, NeigungMax * -1, NeigungMax)
         NeigungX = Math.constrain(NeigungX, NeigungMax * -1, NeigungMax)
         NeigungY = Math.constrain(NeigungY, NeigungMax * -1, NeigungMax)
         led.unplot(LedX, LedY)
-        LedX = Math.map(NeigungX, NeigungMax * -1, NeigungMax, 0, 4)
-        LedY = Math.map(NeigungY, NeigungMax * -1, NeigungMax, 0, 4)
+        LedX = Math.round(Math.map(NeigungX, NeigungMax * -1, NeigungMax, 0, 4))
+        LedY = Math.round(Math.map(NeigungY, NeigungMax * -1, NeigungMax, 0, 4))
         led.plot(LedX, LedY)
         Geschwindigkeit = Math.map(NeigungY, NeigungMax * -1, NeigungMax, 100, MotorMinimum)
         if (NeigungX < 0) {
